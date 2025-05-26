@@ -1,14 +1,25 @@
-﻿namespace DishDash.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DishDash.Domain.Entities
 {
     public class Cart
     {
-        public int CartId { get; set; }
-        public double TotalPrice { get; set; }
-        public int TotalItems { get; set; }
-        public string CartStatus { get; set; } = string.Empty;
-        public double discount { get; set; }
+        [Key]
+        public int Id { get; set; }
 
-        public int CustomerId { get; set; }
-        public required Customer Customer { get; set; }
+        [Range(0, double.MaxValue)]
+        public double TotalPrice { get; set; }
+
+        [Range(0, int.MaxValue)]
+        public int TotalItems { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        public string CartStatus { get; set; } = string.Empty;
+
+        [Range(0, 100)]
+        public double Discount { get; set; }
+
+        public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
     }
 }
