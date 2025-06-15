@@ -19,11 +19,6 @@ namespace DishDash.Domain.Entities
         [MaxLength(50)]
         public string Government { get; set; } = string.Empty;
 
-        [Required]
-        [Phone]
-        [MaxLength(20)]
-        public string ContactNumber { get; set; } = string.Empty;
-
         public int CustomerId { get; set; }
 
         [Required]

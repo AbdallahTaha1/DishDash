@@ -1,4 +1,4 @@
-﻿namespace DishDash.Application.Features.Restaurant
+﻿namespace DishDash.Application.Features.Restaurants
 {
     public class RestaurantDto
     {
